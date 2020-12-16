@@ -1,56 +1,48 @@
 package geeekbrains.home.des.designPatterns.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
+@Table(name = "patient_tbl")
 public class Patient {
 
+    private static final String SEQUANCE_NAME = "patient_seq";
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUANCE_NAME)
+    @SequenceGenerator(name = SEQUANCE_NAME, sequenceName = SEQUANCE_NAME, allocationSize = 1)
+    @Column(name = "patient_id")
     private Long id;
+
+    @Column(name = "name_fld")
     private String name;
-    private String password;
-    private LocalDate birthDate;
+
+    @Column(name = "email_fld")
     private String email;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "birth_date_fld")
+    private LocalDate birthDate;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    @MapsId
+    private User user;
+
+    //more appointment OneToMany
 
     public int getAge() {
         return Period.between(birthDate, LocalDate.now()).getYears();
-    }
-
-    //можно удалить
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void changePassword(String password) {
-        this.password = password;
-    }
-
-    public void changeEmail(String email) {
-        this.email = email;
     }
 
 }
