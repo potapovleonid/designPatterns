@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors</title>
+</head>
+<body>
+    <H2>All doctors</H2>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>BirthDate</td>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.name}">Name</td>
+            <td th:text="${user.email}">Email</td>
+            <td th:text="${user.birthDate}">Status</td>
+        </tr>
+    </table>
+</body>
+</html>
