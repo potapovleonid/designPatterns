@@ -41,6 +41,7 @@ public class User {
     private LocalDate birthDate;
 
     @Column(name = "role_fld")
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

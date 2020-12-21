@@ -11,3 +11,8 @@ spring:
     url: ${DATABASE_PATH}
     username: ${DATABASE_USER}
     password: ${DATABASE_PASSWORD}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, mappings

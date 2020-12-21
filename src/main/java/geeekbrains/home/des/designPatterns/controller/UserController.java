@@ -26,7 +26,9 @@ public class UserController {
 
     @GetMapping("/doctors")
     public String allDoctor(Model model){
-        model.addAttribute("doctors", userService.getAllByRole(UserRole.DOCTOR_ROLE.toString()));
+//        System.out.println("Find all by: " + UserRole.DOCTOR_ROLE);
+//        model.addAttribute("doctors", userService.getByRole(UserRole.DOCTOR_ROLE));
+        model.addAttribute("doctors", userService.getAllDoctor());
         return "doctors";
     }
 
