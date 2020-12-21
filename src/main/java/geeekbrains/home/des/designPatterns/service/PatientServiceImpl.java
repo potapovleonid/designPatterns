@@ -4,7 +4,6 @@ import geeekbrains.home.des.designPatterns.domain.Patient;
 import geeekbrains.home.des.designPatterns.jpa.PatientDAO;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -22,11 +21,23 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public boolean update(Patient patient) {
-        return false;
+        if (patient == null){
+            throw new RuntimeException("Enter null user");
+        }
+        patientDAO.save(patient);
+        return true;
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteById(Long id) {
+        patientDAO.deleteById(id);
+    }
 
+    @Override
+    public Patient findFirstByLogin(String login) {
+        if (login == null){
+            throw new RuntimeException("Enter login for find is null");
+        }
+        return patientDAO.findFirstByName(login);
     }
 }

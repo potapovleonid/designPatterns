@@ -12,28 +12,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Data
-@Table(name = "doctor_tbl")
-public class Doctor {
-
-    private static final String SEQUANCE_NAME = "doctor_seq";
+@Table(name = "user_tbl")
+public class User {
+    private static final String SEQUANCE_NAME = "user_seq";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUANCE_NAME)
     @SequenceGenerator(name = SEQUANCE_NAME, sequenceName = SEQUANCE_NAME, allocationSize = 1)
-    @Column(name = "doctor_id")
+    @Column(name = "user_id")
     private Long id;
 
-    @Column(name = "name_fld")
-    private String name;
+    @Column(name = "login_fld")
+    private String login;
 
-    @Column(name = "profession_tbl")
-    private String profession;
+    @Column(name = "password_fld")
+    private String password;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    @MapsId
-    private User user;
-
-    //more appointment OneToMany
+    @Column(name = "role_fld")
+    private UserRole role;
 
 }
