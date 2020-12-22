@@ -11,13 +11,15 @@
             <td>ID</td>
             <td>Name</td>
             <td>Email</td>
-            <td>BirthDate</td>
+<!--            <td>BirthDate</td>-->
+            <td>Age</td>
         </tr>
-        <tr th:each="user : ${users}">
+        <tr th:each="user : ${doctors}">
             <td th:text="${user.id}">ID</td>
             <td th:text="${user.name}">Name</td>
             <td th:text="${user.email}">Email</td>
-            <td th:text="${user.birthDate}">Status</td>
+<!--            <td th:text="${user.birthDate}">BirthDate</td>-->
+            <td th:text="${user.getAge()}">Age</td>
         </tr>
     </table>
 </body>
