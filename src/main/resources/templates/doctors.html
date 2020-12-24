@@ -5,7 +5,11 @@
     <title>Doctors</title>
 </head>
 <body>
-    <H2>All doctors</H2>
+
+<div th:insert="~{integrated/header_menu :: #nav-menu}"></div>
+
+
+<H2>All doctors</H2>
     <table border="1">
         <tr>
             <td>ID</td>
@@ -18,7 +22,6 @@
             <td th:text="${user.id}">ID</td>
             <td th:text="${user.name}">Name</td>
             <td th:text="${user.email}">Email</td>
-<!--            <td th:text="${user.birthDate}">BirthDate</td>-->
             <td th:text="${user.getAge()}">Age</td>
         </tr>
     </table>

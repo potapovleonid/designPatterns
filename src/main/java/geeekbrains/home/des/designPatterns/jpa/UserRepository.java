@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByName(String name);
-
+    User findByLogin(String login);
     //поиск по роли не работает
     List<User> findByRole(UserRole role);
 //    List<User> findAllByRole(String role);

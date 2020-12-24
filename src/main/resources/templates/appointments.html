@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+</head>
+<body>
+
+<div th:insert="~{integrated/header_menu :: #nav-menu}"></div>
+
+
+<table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Date</td>
+            <td>Recording time</td>
+            <td>User name</td>
+            <td>Doctor name</td>
+        </tr>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.id}">ID</td>
+            <td th:text="${appointment.date}">Date</td>
+            <td th:text="${appointment.time}">Recording time</td>
+<!--            <td th:text="${appointment.user.id}">User name</td>-->
+            <td th:text="${appointment.doctorId}">Doctor name</td>
+        </tr>
+    </table>
+</body>
+</html>
