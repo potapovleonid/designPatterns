@@ -4,10 +4,15 @@ server:
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${DATABASE_PATH}
     username: ${DATABASE_USER}
     password: ${DATABASE_PASSWORD}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, mappings

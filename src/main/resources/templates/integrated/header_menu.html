@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+
+<table id="nav-menu" width="100%">
+    <td align="center">
+        <table>
+            <h2>Menu</h2>
+            <tr>
+                <td><a th:href="@{/}">Home</a></td>
+                <td><a th:href="@{/users}">Users</a></td>
+                <td><a th:href="@{/users/doctors}">Doctors</a></td>
+                <td><a th:href="@{/appointments}">Appointments</a></td>
+            </tr>
+        </table>
+    </td>
+</table>
+
+</body>
+</html>
